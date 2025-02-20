@@ -8,3 +8,9 @@ Our goal is to enhance accessibility and usability for individuals with mobility
 
 ## How to Run
 Coming soon...
+
+## Features to Add
+* Pinch to scroll -- slowly scroll when pinching and stop when stop pinching
+* Swipe to move workspaces -- full hand swipe to side and move to next workspace
+* "Icognito" Mode -- make fist to close out all windows on OS in one go
+* Thumbs-Up Close -- thumbs up to close the current page/application
