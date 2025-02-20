@@ -99,7 +99,7 @@ while cam.isOpened():
             # if drawing is enabled let user draw on canvas and update prev variables for canvas purposes
             if drawing_enabled:
                 if prev_x is not None and prev_y is not None:
-                    cv2.line(canvas, (prev_x, prev_y), (index_pixels[0], index_pixels[1]), (0, 255, 0), 100)
+                    cv2.line(canvas, (prev_x, prev_y), (index_pixels[0], index_pixels[1]), (0, 255, 0), 10)
                 prev_x, prev_y = index_pixels[0], index_pixels[1]
 
     # merge image and drawing canvas
