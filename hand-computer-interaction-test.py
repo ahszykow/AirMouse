@@ -23,7 +23,7 @@ hands = mp_hands.Hands(max_num_hands=1,
 mp_drawing = mp.solutions.drawing_utils
 
 # intilializing webcam
-cam = cv2.VideoCapture(0, cv2.CAP_AVFOUNDATION)
+cam = cv2.VideoCapture(0)
 
 # Screen sizes
 screenWidth, screenHeight = pyautogui.size()
