@@ -8,7 +8,7 @@ canvas = None
 prev_x, prev_y = None, None
 
 # pinching threshold to change as needed
-PINCH = 0.07
+PINCH = 0.05
 
 # helper function to calculate distance of fingers
 def euc_dist(fing1,fing2):
@@ -71,24 +71,23 @@ while cam.isOpened():
             # calc distance between thumb and index finger
             distance = euc_dist(thumb,index)
 
-
             # check if fingers are touching using threshold
             if distance < PINCH:
                 drawing_enabled = True  # start drawing
-            elif fist:
-                ## STILL TESTING: WILL CLEAR CANVAS AND EXPORT/REMOVE CANVAS TO IMAGE
-                # white_bg = np.ones_like(canvas, dtype=np.uint8) * 255
-                # drawing_on_white = cv2.addWeighted(white_bg, 1, canvas, 1, 0)
+            elif fist and canvas[:].any() != 0:
+                # STILL TESTING: WILL CLEAR CANVAS AND EXPORT/REMOVE CANVAS TO IMAGE
+                white_bg = np.ones_like(canvas, dtype=np.uint8) * 255
+                drawing_on_white = cv2.addWeighted(white_bg, 1, canvas, 1, 0)
 
-                # # Save the image
-                # filename = f"drawing_{save_counter}.png"
-                # cv2.imwrite(filename, drawing_on_white)
-                # print(f"Drawing saved as {filename}")
+                # Save the image
+                filename = f"drawing_{save_counter}.png"
+                cv2.imwrite(filename, drawing_on_white)
+                print(f"Drawing saved as {filename}")
 
-                # # Open saved image in new window
-                # saved_image = cv2.imread(filename)
-                # cv2.imshow(f"Saved Drawing {save_counter}", saved_image)
-                # save_counter += 1
+                # Open saved image in new window
+                saved_image = cv2.imread(filename)
+                cv2.imshow(f"Saved Drawing {save_counter}", saved_image)
+                save_counter += 1
                 
                 canvas[:] = 0  # clear canvas if fist is detected
                 drawing_enabled = False  # reset drawing flag
@@ -96,9 +95,6 @@ while cam.isOpened():
             else:
                 drawing_enabled = False  # stop drawing
                 prev_x, prev_y = None,None  # reset drawing position
-
-            ## COMMENT OUT: IF YOU WANT INDEX FINGER TRACKING
-            #cv2.circle(image, (index_pixels[0], index_pixels[1]), 4, (0, 0, 255), -1)  # Red dot for fingertip
 
             # if drawing is enabled let user draw on canvas and update prev variables for canvas purposes
             if drawing_enabled:
