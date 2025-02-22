@@ -14,3 +14,8 @@ Coming soon...
 * Swipe to move workspaces -- full hand swipe to side and move to next workspace
 * "Icognito" Mode -- make fist to close out all windows on OS in one go
 * Thumbs-Up Close -- thumbs up to close the current page/application
+
+## Motivation
+* [Continuous Gesture Recognition with RGB Camera](https://www.youtube.com/watch?v=z_lDdHB58QY)
+* [Ego-Centric Hand Tracking with RGB Camera](https://www.youtube.com/watch?v=SdianLL_1AI)
+* [Air-Text: Air-Writing and Recognition System](https://dl.acm.org/doi/10.1145/3474085.3475694#)
